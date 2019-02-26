@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="navConfig.brand.pathUrl">{{navConfig.brand.label}}</a>
+  <ul class="navbar-nav">
+    <li class="nav-item" *ngFor="let item of navConfig?.links">
+      <a class="nav-link" [routerLink]="item.pathUrl">{{item.label}}</a>
+    </li>
+  </ul>
+  <ng-container *ngIf="user?.id">
+    <div class="ml-auto">
+      <h5 style="color:white">{{user?.name}}</h5>
+    </div>
+    <div class="dropdown ml-1">
+      <a data-toggle="dropdown" href="#">
+        <img style="width: 40px;" src="assets/avatar.png">
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault();logout()">Logout</a>
+      </div>
+    </div>
+  </ng-container>
+
+</nav>

@@ -1,0 +1,14 @@
+<div class="card shadow">
+  <img class= "card-img-top" style="width: 100%; height: auto;" [src]="prodotto.image">
+  <div class="card-body d-flex flex-column" style="height: 190px; overflow: hidden;">
+    <span 
+    class="badge badge-warning mx-auto"
+    [ngClass]="{invisible:!prodotto.offer || prodotto.offer <= 0 }">Offerta {{prodotto.offer}}%</span>
+    <h5 class="text-center">{{prodotto.name}}</h5>
+    <p class="card-text" >{{prodotto.description}}</p>
+  </div>
+  <div class="card-footer card-footer-custom d-flex">
+    <span [ngClass]="{'text-danger':prodotto.price > 500}">{{prodotto.price|currency:'EUR'}}</span>  
+    <a href="javascript:void(0)" class="ml-auto"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card shadow">
+      <div class="card-header"><h5>Registrazione</h5></div>
+      <div class="card-body">
+        <form #formRegistrazione ="ngForm" (ngSubmit)="registra(formRegistrazione)">
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" class="form-control" name="nome" [(ngModel)]="user.name" >
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control"  name="email" [(ngModel)]="user.email" #emailControl="ngModel" required>
+            <div class="alert alert-danger" *ngIf="!emailControl.valid && formRegistrazione.submitted">indirizzo email obbligatorio</div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #passwordControl="ngModel" required>
+            <div class="alert alert-danger" *ngIf="!passwordControl.valid && formRegistrazione.submitted">Password obbligatoria</div>
+          </div>
+          <div class="d-flex">
+            <button type ="submit" class="btn btn-primary ml-auto">Registra</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
