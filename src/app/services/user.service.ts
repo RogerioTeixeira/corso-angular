@@ -5,13 +5,14 @@ import { User } from '../model/user';
 import { HttpParams } from '@angular/common/http';
 import { StoreService } from './store.service';
 import { tap } from 'rxjs/operators';
+import { UserStoreService } from './user-store.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private api: ApiService , private store:StoreService) { }
+  constructor(private api: ApiService , private store:UserStoreService) { }
 
   register(user:User):Observable<any>{
     return this.api.post('/user',user);
@@ -20,9 +21,12 @@ export class UserService {
   login(email:string , password:string):Observable<any>{
     const param:HttpParams = new HttpParams().set("id", email).set("password", password)
     return this.api.get('/user', param)
-    .pipe(tap(user=>{
-         console.log('chiamata servizio login. Risposta:', user);
-    }));
+    .pipe(tap(((users:User[])=>{
+         console.log('chiamata servizio login. Risposta:', users);
+         if(users.length > 0){
+           this.store.setState(users[0]);
+         }
+    })))
   }
 
   getUser():User{

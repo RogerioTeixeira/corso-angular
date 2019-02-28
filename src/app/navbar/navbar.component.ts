@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.store.state.subscribe(x=>{
+       console.log('user:' , x)
         this.user = x;
     })
   }

@@ -3,6 +3,7 @@ import { NavbarService } from './services/navbar.service';
 import { UserService } from './services/user.service';
 import { StoreService } from './services/store.service';
 import { NavbarConfig } from './navbar';
+import { UserStoreService } from './services/user-store.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
 
   constructor(public navbarService: NavbarService,
     private userService: UserService,
-    private store: StoreService) {
+    private store: UserStoreService) {
 
   }
 
