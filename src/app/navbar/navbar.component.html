@@ -5,7 +5,7 @@
       <a class="nav-link" [routerLink]="item.pathUrl">{{item.label}}</a>
     </li>
   </ul>
-  <ng-container *ngIf="user?.id">
+  <ng-container *ngIf="user">
     <div class="ml-auto">
       <h5 style="color:white">{{user?.name}}</h5>
     </div>

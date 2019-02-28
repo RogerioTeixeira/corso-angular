@@ -17,6 +17,8 @@ import localeIt from '@angular/common/locales/it';
 import localeItExtra from '@angular/common/locales/extra/fr';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { LoginComponent } from './login/login.component';
+import { DettaglioProdottiComponent } from './dettaglio-prodotti/dettaglio-prodotti.component';
+import { CalcPricePipe } from './shared/calc-price.pipe';
 
 registerLocaleData(localeIt, 'it', localeItExtra);
 
@@ -30,7 +32,9 @@ registerLocaleData(localeIt, 'it', localeItExtra);
     ListaProdottiComponent,
     SchedaProdottoComponent,
     RegistrazioneComponent,
-    LoginComponent
+    LoginComponent,
+    DettaglioProdottiComponent,
+    CalcPricePipe
   ],
   imports: [
     BrowserModule,

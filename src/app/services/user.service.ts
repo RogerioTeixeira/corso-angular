@@ -28,6 +28,6 @@ export class UserService {
 
   logout(){
     localStorage.removeItem("user");
-    this.store.sendValue(new User());
+    this.store.setState(null);
   }
 }

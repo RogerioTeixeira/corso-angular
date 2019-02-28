@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   constructor(private store:StoreService , private userService:UserService) { }
 
   ngOnInit() {
-    this.store.getValue().subscribe(x=>{
+    this.store.state.subscribe(x=>{
         this.user = x;
     })
   }

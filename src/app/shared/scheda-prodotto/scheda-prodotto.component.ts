@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Prodotti } from 'src/app/model/prodotti';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-scheda-prodotto',
@@ -12,6 +13,7 @@ export class SchedaProdottoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

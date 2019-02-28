@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.store.getValue()
+  this.store.state
   .subscribe(user=>{
     
-    if(user.id){
+    if(user){
         this.navbarConfig = this.navbarService.getNavbarConfig(true);
     } else {
       this.navbarConfig = this.navbarService.getNavbarConfig(false);
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
    const user = this.userService.getUser();
    if(user){
-     this.store.sendValue(user);
+     this.store.setState(user);
    }
   }
 }

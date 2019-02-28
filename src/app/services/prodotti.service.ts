@@ -13,11 +13,15 @@ export class ProdottiService {
   constructor(private api: ApiService) {
   }
 
-  getAllProdotti(): Observable<any> {
+  getAllProdotti(): Observable<Prodotti[]> {
     return this.api.get('/prodotti');
   }
 
-  getProdottiHasOffer(): Observable<any> {
+  getProdottoById(id:string): Observable<Prodotti> {
+    return this.api.get(`/prodotti/${id}`);
+  }
+
+  getProdottiHasOffer(): Observable<Prodotti[]> {
     return this.getAllProdotti()
     .pipe(
       map((prodotti:Prodotti[])=>{

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(user.id, user.password)
       .subscribe((x:any[]) => {
         if(x.length>0){
-          this.store.sendValue(x[0]);
+          this.store.setState(x[0]);
           localStorage.setItem("user", JSON.stringify(x[0]));
           this.router.navigate(['/home'])
         } else {

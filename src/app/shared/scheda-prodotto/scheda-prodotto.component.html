@@ -1,5 +1,5 @@
 <div class="card shadow">
-  <img class= "card-img-top" style="width: 100%; height: auto;" [src]="prodotto.image">
+  <a [routerLink]="['/prodotti/dettaglio',prodotto.id]"><img class= "card-img-top" style="width: 100%; height: auto;" [src]="prodotto.image"></a>
   <div class="card-body d-flex flex-column" style="height: 190px; overflow: hidden;">
     <span 
     class="badge badge-warning mx-auto"

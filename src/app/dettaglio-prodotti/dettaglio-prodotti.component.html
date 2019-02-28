@@ -1,0 +1,45 @@
+<ng-container *ngIf="$prodotti|async; let prodotti">
+  <div class="row">
+    <div class="col-md-8">
+      <img [src]="prodotti.image">
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-end">
+            <del class="mr-3">{{prodotti.price|currency:'EUR'}}</del>
+            <span class="badge badge-warning mr-3">-{{prodotti.offer / 100|percent}}</span>
+            <h4 class="text-primary">{{prodotti.price|calcPrice:prodotti.offer|currency:'EUR'}}</h4>
+          </div>
+          <hr>
+          <div class="d-flex">
+            <button class="btn btn-block btn-warning">AGGIUNGI AL CARRELLO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      <table class="table" style="border-left: 8px solid #ffc107;">
+
+        <tbody>
+          <tr>
+            <td>Serie</td>
+            <td>{{prodotti.collection}}</td>
+          </tr>
+          <tr>
+            <td>Marca</td>
+            <td>{{prodotti.brand}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      <h4>Descrizione</h4>
+      <p>{{prodotti.description}}</p>
+    </div>
+  </div>
+</ng-container>
