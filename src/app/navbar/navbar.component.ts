@@ -5,6 +5,7 @@ import { User } from '../model/user';
 import { UserService } from '../services/user.service';
 import { UserStoreService } from '../services/user-store.service';
 import { Subscription } from 'rxjs';
+import { CarrelloStoreService } from '../services/carrello-store.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit ,  OnDestroy {
 
   user:User;
   sub:Subscription;
-  constructor(private store:UserStoreService , private userService:UserService) { }
+  constructor(private store:UserStoreService , private userService:UserService,public storeCarrelo:CarrelloStoreService) { }
 
   ngOnInit() {
     this.sub = this.store.state.subscribe(x=>{

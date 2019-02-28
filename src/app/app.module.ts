@@ -20,6 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { DettaglioProdottiComponent } from './dettaglio-prodotti/dettaglio-prodotti.component';
 import { CalcPricePipe } from './shared/calc-price.pipe';
 import { ListaAlternativeComponent } from './dettaglio-prodotti/lista-alternative/lista-alternative.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CalcolaTotalePipe } from './shared/calcola-totale.pipe';
 
 registerLocaleData(localeIt, 'it', localeItExtra);
 
@@ -36,7 +38,9 @@ registerLocaleData(localeIt, 'it', localeItExtra);
     LoginComponent,
     DettaglioProdottiComponent,
     CalcPricePipe,
-    ListaAlternativeComponent
+    ListaAlternativeComponent,
+    CheckoutComponent,
+    CalcolaTotalePipe
   ],
   imports: [
     BrowserModule,

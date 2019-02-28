@@ -5,6 +5,17 @@
       <a class="nav-link" [routerLink]="item.pathUrl">{{item.label}}</a>
     </li>
   </ul>
+
+  <ul class="navbar-nav" style="margin-left:10rem">
+    <li class="nav-item" >
+      <a class="nav-link"> 
+        <i class="fa fa-shopping-cart" aria-hidden="true" [routerLink]="['/carrello']">
+        <span class="ml-2">{{(storeCarrelo.state|async).prodotti.length}}</span>
+        </i>
+      </a>
+    </li>
+  </ul>
+
   <ng-container *ngIf="user">
     <div class="ml-auto">
       <h5 style="color:white">{{user?.name}}</h5>

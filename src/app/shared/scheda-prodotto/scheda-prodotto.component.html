@@ -9,6 +9,6 @@
   </div>
   <div class="card-footer card-footer-custom d-flex">
     <span [ngClass]="{'text-danger':prodotto.price > 500}">{{prodotto.price|currency:'EUR'}}</span>  
-    <a href="javascript:void(0)" class="ml-auto"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+    <a href="javascript:void(0)" class="ml-auto"><i class="fa fa-shopping-cart" aria-hidden="true" (click)="add(prodotto)"></i></a>
   </div>
 </div>

@@ -1,0 +1,56 @@
+<ng-container *ngIf="carrello.state|async; let carrello">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row mb-2" *ngFor="let prodotto of carrello.prodotti">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <img [src]="prodotto.image">
+                </div>
+                <div class="col-md-8">
+                  <div class="col-md-12 mt-3">
+                    <table class="table" style="border-left: 8px solid #ffc107;">
+                      <tbody>
+                        <tr>
+                          <td>Serie</td>
+                          <td>{{prodotto.collection}}</td>
+                        </tr>
+                        <tr>
+                          <td>Marca</td>
+                          <td>{{prodotto.brand}}</td>
+                        </tr>
+                        <tr>
+                          <td>Serie</td>
+                          <td>{{prodotto.collection}}</td>
+                        </tr>
+                        <tr>
+                          <td>Prezzo</td>
+                          <td>{{prodotto.price|currency:'EUR'}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-end">
+            <h4 class="text-primary">{{carrello.prodotti|calcolaTotale|currency:'EUR'}}</h4>
+          </div>
+          <hr>
+          <div class="d-flex">
+            <button class="btn btn-block btn-warning">ACQUISTA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

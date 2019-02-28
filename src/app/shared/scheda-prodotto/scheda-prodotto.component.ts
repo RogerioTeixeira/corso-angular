@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Prodotti } from 'src/app/model/prodotti';
 import { ActivatedRoute } from '@angular/router';
+import { CarrelloService } from 'src/app/services/carrello.service';
 
 @Component({
   selector: 'app-scheda-prodotto',
@@ -10,10 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class SchedaProdottoComponent implements OnInit {
   @Input() prodotto:Prodotti;
 
-  constructor() { }
+  constructor(private carrello:CarrelloService) { }
 
   ngOnInit() {
     
+  }
+
+  add(prodotto:Prodotti){
+    this.carrello.add(prodotto);
   }
 
 }
