@@ -15,15 +15,21 @@ export class UserService {
   constructor(private api: ApiService , private store:UserStoreService) { }
 
   register(user:User):Observable<any>{
-    return this.api.post('/user',user);
+    return this.api.post('/user',user)
+    .pipe(tap(user=>{
+      if(user){
+        localStorage.setItem("user", JSON.stringify(user));
+        this.store.setState(user);
+      }
+    }));
   }
 
   login(email:string , password:string):Observable<any>{
     const param:HttpParams = new HttpParams().set("id", email).set("password", password)
     return this.api.get('/user', param)
     .pipe(tap(((users:User[])=>{
-         console.log('chiamata servizio login. Risposta:', users);
          if(users.length > 0){
+           localStorage.setItem("user", JSON.stringify(users[0]));
            this.store.setState(users[0]);
          }
     })))

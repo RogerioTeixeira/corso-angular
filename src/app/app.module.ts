@@ -19,6 +19,7 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
 import { LoginComponent } from './login/login.component';
 import { DettaglioProdottiComponent } from './dettaglio-prodotti/dettaglio-prodotti.component';
 import { CalcPricePipe } from './shared/calc-price.pipe';
+import { ListaAlternativeComponent } from './dettaglio-prodotti/lista-alternative/lista-alternative.component';
 
 registerLocaleData(localeIt, 'it', localeItExtra);
 
@@ -34,7 +35,8 @@ registerLocaleData(localeIt, 'it', localeItExtra);
     RegistrazioneComponent,
     LoginComponent,
     DettaglioProdottiComponent,
-    CalcPricePipe
+    CalcPricePipe,
+    ListaAlternativeComponent
   ],
   imports: [
     BrowserModule,

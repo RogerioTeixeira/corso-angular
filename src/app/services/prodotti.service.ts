@@ -21,6 +21,11 @@ export class ProdottiService {
     return this.api.get(`/prodotti/${id}`);
   }
 
+  getProdottoByBrand(brand:string): Observable<Prodotti[]> {
+    const param:HttpParams = new HttpParams().set("brand", brand)
+    return this.api.get(`/prodotti`, param);
+  }
+
   getProdottiHasOffer(): Observable<Prodotti[]> {
     return this.getAllProdotti()
     .pipe(
