@@ -3,6 +3,7 @@ import { NavbarConfig } from '.';
 import { StoreService } from '../services/store.service';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
+import { UserStoreService } from '../services/user-store.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
   @Input() navConfig:NavbarConfig;
 
   user:User;
-  constructor(private store:StoreService , private userService:UserService) { }
+  constructor(private store:UserStoreService , private userService:UserService) { }
 
   ngOnInit() {
     this.store.state.subscribe(x=>{
