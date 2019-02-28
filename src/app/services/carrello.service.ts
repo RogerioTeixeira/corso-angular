@@ -33,4 +33,20 @@ export class CarrelloService {
       this.store.setState(carrelloParsed);
     }
   }
+
+  elimina(prodotto:Prodotti){
+    const carrello = localStorage.getItem("carrello");
+    if(carrello){
+      const carrelloParsed:Carrello = new Carrello(JSON.parse(carrello));
+      carrelloParsed.prodotti = carrelloParsed.prodotti.filter(x=>x.id != prodotto.id);
+      localStorage.setItem("carrello", JSON.stringify(carrelloParsed));
+      this.store.setState(carrelloParsed);
+    }
+
+  }
+
+  svuolta(){
+    localStorage.setItem("carrello", JSON.stringify(new Carrello()));
+    this.store.setState(new Carrello());
+  }
 }

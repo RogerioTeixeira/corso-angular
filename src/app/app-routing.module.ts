@@ -6,7 +6,8 @@ import { ProdottiComponent } from './prodotti/prodotti.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { LoginComponent } from './login/login.component';
 import { DettaglioProdottiComponent } from './dettaglio-prodotti/dettaglio-prodotti.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutComponent } from "./checkout/CheckoutComponent";
+import { ConfermaAcquistoComponent } from './conferma-acquisto/conferma-acquisto.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'registra', component:RegistrazioneComponent},
   {path:'carrello', component: CheckoutComponent},
   {path:'prodotti/dettaglio/:id', component:DettaglioProdottiComponent},
+  {path:'conferma', component:ConfermaAcquistoComponent},
   {path:'login', component:LoginComponent}
 ];
 
