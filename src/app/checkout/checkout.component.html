@@ -27,7 +27,16 @@
                         </tr>
                         <tr>
                           <td>Prezzo</td>
-                          <td>{{prodotto.price|currency:'EUR'}}</td>
+                          <td>
+                            <div class="d-flex">
+                              <ng-container *ngIf="prodotto.offer > 0">
+                                <del class="mr-3">{{prodotto.price|currency:'EUR'}}</del>
+                                <span class="badge badge-warning mr-3">-{{prodotto.offer / 100|percent}}</span>
+                              </ng-container>
+                              <h5 class="text-primary ml-auto">{{prodotto.price|calcPrice:prodotto.offer|currency:'EUR'}}</h5>
+                            </div>
+                          </td>
+
                         </tr>
                       </tbody>
                     </table>
